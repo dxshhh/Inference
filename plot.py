@@ -39,9 +39,10 @@ def E():
     plt.plot(np.arange(sigma.shape[0]),np.sort(sigma))
     plt.show()
 
-
 def cal():
     b = bm.array([v for v in range(10)])
+
+
 if __name__ == '__main__':
     eigen(neuron_size = np.array([100] + [100] * 5))
     eigen(neuron_size=np.array([100] + [50] * 10))
