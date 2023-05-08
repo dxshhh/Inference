@@ -284,7 +284,7 @@ if __name__ == '__main__':
     learning_rate = cos_anneal(0.01,0.0005,Epoch)
 
     # pcn para
-    neuron_size,model_name,normalize,inv_normalize,_transforms,training_data,using_epoch = load_config(4)
+    neuron_size,model_name,normalize,inv_normalize,_transforms,training_data,using_epoch = load_config(2)
 
     sigma_scale = bm.linspace(0.01, 1, len(neuron_size))
     tau = 1 / sigma_scale

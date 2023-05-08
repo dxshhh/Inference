@@ -113,7 +113,7 @@ def ill_singlelayer():
     plt.ylim([0, 10])
     plt.tight_layout()
     #plt.savefig('./figure/fig1_a.eps')
-    plt.savefig('./figure/fig1_a.pdf')
+    plt.savefig('./result_image/fig1_a.pdf')
     plt.show()
 
 
