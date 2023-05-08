@@ -53,54 +53,24 @@ def E():
 def cal():
     b = bm.array([v for v in range(10)])
 
-
+def circle(x, y, r, line, color, linewidth, text, size, rx, ry):
+    xx = np.linspace(x - r, x + r, 500)
+    xxx = np.linspace(x - r, x + r, 500)
+    plt.plot(xxx, y + np.sqrt(r ** 2 - (x - xx) ** 2), line, color=color, linewidth=linewidth)
+    plt.plot(xxx, y - np.sqrt(r ** 2 - (x - xx) ** 2), line, color=color, linewidth=linewidth)
+    plt.text(x - rx, y - ry, text, fontsize=size)
 def ill_singlelayer():
     U_color = np.array([92, 158, 173]) / 255
     V_color = np.array([210, 204, 161]) / 255
     I_color = np.array([239, 111, 108]) / 255
     line_color = np.array([237, 177, 131]) / 255
-
-    def circle(x, y, r, line, color, linewidth, text, size, rx, ry):
-        xx = np.linspace(x - r, x + r, 500)
-        xxx = np.linspace(x - r, x + r, 500)
-        plt.plot(xxx, y + np.sqrt(r ** 2 - (x - xx) ** 2), line, color=color, linewidth=linewidth)
-        plt.plot(xxx, y - np.sqrt(r ** 2 - (x - xx) ** 2), line, color=color, linewidth=linewidth)
-        plt.text(x - rx, y - ry, text, fontsize=size)
-
     plt.figure(figsize=(6, 6))
-    '''
-    circle(1,5,0.5,':','k',2.5,r'$s_1$',30,0.5*0.5,0.5*0.4)
-    circle(2.5, 5, 0.5, '-', 'k', 1.5, r'$s_1^{\rm o}$', 30,0.5*0.6,0.5*0.4)
-    circle(4, 5, 0.5, '-', I_color, 1.5, r'$I_1^{ext}$', 20,0.5*0.7,0.5*0.4)
-    circle(5.5, 5, 0.5, '-', U_color, 1.5, r'$U_1$', 25,0.5*0.6,0.5*0.4)
-    circle(7, 5, 0.5, '-', line_color, 1.5, r'$s_1$', 30,0.5*0.5,0.5*0.4)
 
-    circle(1, 3.5, 0.5, ':', 'k', 1.5, r'$s_2$', 30, 0.5*0.5,0.5*0.4)
-    circle(2.5, 3.5, 0.5, '-', 'k', 1.5, r'$s_2^{\rm o}$', 30, 0.5 * 0.6, 0.5 * 0.4)
-    circle(4, 3.5, 0.5, '-', I_color, 1.5, r'$I_2^{ext}$', 20, 0.5 * 0.7, 0.5 * 0.4)
-    circle(5.5, 3.5, 0.5, '-', U_color, 1.5, r'$U_2$', 25, 0.5 * 0.6, 0.5 * 0.4)
-    circle(7, 3.5, 0.5, '-', line_color, 1.5, r'$s_2$', 30, 0.5*0.5,0.5*0.4)
-
-
-    plt.text(0, 4.2, r'$L_{12}$', fontsize=15)
-    plt.text(1.4, 4.2, r'$L_{21}$', fontsize=15)
-    plt.text(4.5, 4.2, r'$G_{12}$', fontsize=15)
-    plt.text(5.9, 4.2, r'$G_{21}$', fontsize=15)
-    '''
     circle(1, 3.5, 0.5, ':', 'k', 2.5, r'$s$', 30, 0.5 * 0.4, 0.5 * 0.35)
     circle(2.5, 3.5, 0.5, '-', 'k', 2.5, r'$O$', 30, 0.5 * 0.6, 0.5 * 0.4)
-    circle(4, 3.5, 0.5, '-', I_color, 2.5, r'$I^{ext}$', 20, 0.5 * 0.7, 0.5 * 0.4)
-    circle(5.5, 3.5, 0.5, '-', U_color, 2.5, r'$U$', 25, 0.5 * 0.5, 0.5 * 0.45)
-    circle(7, 3.5, 0.5, '-', line_color, 2.5, r'$s$', 30, 0.5 * 0.4, 0.5 * 0.35)
+
     S_1 = 10
     plt.text(0.2, 2.6, 'latent feature', fontsize=S_1)
-    plt.text(0.7, 2.3, r'$p(s)$', fontsize=S_1)
-    plt.text(1.9, 2.6, 'observation', fontsize=S_1)
-    plt.text(2.1, 2.3, r'$p(s^{\rm o}|s)$', fontsize=S_1)
-    plt.text(3.4, 2.6, 'external input', fontsize=S_1)
-    plt.text(5.15, 2.6, 'CANN', fontsize=S_1)
-    plt.text(6.2, 2.6, 'bump position', fontsize=S_1)
-    plt.text(6.2, 2.3, r'$\tilde{p}(s) = p(s|s^{\rm o})$', fontsize=S_1)
 
     ax = plt.gca()
     ax.spines['right'].set_color('none')
